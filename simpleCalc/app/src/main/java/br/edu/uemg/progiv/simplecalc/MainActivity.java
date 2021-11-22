@@ -175,6 +175,8 @@ public class MainActivity extends AppCompatActivity {
         btnSoma.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(Result[0] > 0 && Result[1] >0)
+                    sinalIgual();
                 operacao = "soma";
                 proximoNumero();
             }
@@ -188,14 +190,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //mult | div
+        btnMult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                operacao = "mult";
+                proximoNumero();
+            }
+        });
+
+        btnDiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                operacao = "div";
+                proximoNumero();
+            }
+        });
+
 
         btnIgual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                calcular();
-                exibirResultado(); //Trocar o resultado na tela
-                Total = 0; //Zerar o valor de total
-                count = 0; //Zerar o contador
+                sinalIgual();
             }
         });
 
@@ -205,6 +220,13 @@ public class MainActivity extends AppCompatActivity {
                 limpar();
             }
         });
+    }
+
+    private void sinalIgual(){
+        calcular();
+        exibirResultado(); //Trocar o resultado na tela
+        Total = 0; //Zerar o valor de total
+        count = 0; //Zerar o contador
     }
 
     private void exibirResultado(){
@@ -243,6 +265,8 @@ public class MainActivity extends AppCompatActivity {
             case "soma": Total = (Result[0] + Result[1]); break;
             case "sub":  Total = (Result[0] - Result[1]); break;
             //mult | div
+            case "mult": Total = (Result[0] * Result[1]); break;
+            case "div":  Total = (Result[0] / Result[1]); break;
         }
         //se for um valor inválido:
         if(Total < INVALID){
