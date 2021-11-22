@@ -185,6 +185,8 @@ public class MainActivity extends AppCompatActivity {
         btnSub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(Result[0] > 0 && Result[1] >0)
+                    sinalIgual();
                 operacao = "sub";
                 proximoNumero();
             }
@@ -193,6 +195,8 @@ public class MainActivity extends AppCompatActivity {
         btnMult.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(Result[0] > 0 && Result[1] >0)
+                    sinalIgual();
                 operacao = "mult";
                 proximoNumero();
             }
@@ -201,6 +205,8 @@ public class MainActivity extends AppCompatActivity {
         btnDiv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(Result[0] > 0 && Result[1] >0)
+                    sinalIgual();
                 operacao = "div";
                 proximoNumero();
             }
