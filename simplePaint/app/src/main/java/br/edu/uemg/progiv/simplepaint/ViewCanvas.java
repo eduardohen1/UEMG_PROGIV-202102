@@ -3,6 +3,7 @@ package br.edu.uemg.progiv.simplepaint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -27,6 +28,19 @@ public class ViewCanvas extends View {
     private void inicializaObjetos(){
         path = new Path();
         linha = new Linha(getContext(), path);
+    }
+
+    public void inicializaObjetosVerde(){
+        path = new Path();
+        //Paint paint = Estilo.getEstiloParaLinhaVerde();
+        Paint paint = Estilo.getEstilosParaLinha(1,2);
+        linha = new Linha(getContext(), path, paint);
+    }
+
+    public void inicializaObjetosVermelho(){
+        path = new Path();
+        Paint paint = Estilo.getEstilosParaLinha(2,0);
+        linha = new Linha(getContext(), path, paint);
     }
 
     private void inicioToque(float x, float y){
@@ -54,6 +68,7 @@ public class ViewCanvas extends View {
 
     public void limparCanvas(){
         path.reset();
+        inicializaObjetos();
         invalidate();
     }
 

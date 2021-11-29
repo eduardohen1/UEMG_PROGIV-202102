@@ -12,7 +12,11 @@ public class Linha {
     //Construtor:
     public Linha(Context context, Path path){
         this.path = path;
-        this.paint = Estilo.getEstilosParaLinha();
+        this.paint = Estilo.getEstilosParaLinha(0,0);
+    }
+    public Linha(Context context, Path path, Paint paint){
+        this.path = path;
+        this.paint = paint;
     }
 
     public void desenharLinha(Canvas canvas){
