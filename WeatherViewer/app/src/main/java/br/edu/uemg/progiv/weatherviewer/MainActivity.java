@@ -112,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
                         Snackbar.make(findViewById(R.id.coordinatorLayout), R.string.read_error, Snackbar.LENGTH_LONG).show();
                         e.printStackTrace();
                     }
+                    return new JSONObject(builder.toString()); //aki!!!
                 }else{
                     Snackbar.make(findViewById(R.id.coordinatorLayout), R.string.connect_error, Snackbar.LENGTH_LONG).show();
                 }
