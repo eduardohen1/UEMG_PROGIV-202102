@@ -4,6 +4,7 @@
     package="br.edu.uemg.progiv.weatherviewer">
 
     <!-- <uses-permission android:name="android.permission.INTERNET" />  aki!!! -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
