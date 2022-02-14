@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCadProdutos">
         <activity
-            android:name=".activity_produtos"
-            android:exported="true" />
-        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
