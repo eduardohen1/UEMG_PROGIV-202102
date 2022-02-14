@@ -43,6 +43,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
         registerForContextMenu(listView);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                produto = (ProdutosModel) parent.getItemAtPosition(position);
+                Intent intent = new Intent(MainActivity.this, Produtos.class);
+                intent.putExtra("selectProduto", produto);
+                startActivity(intent);
+            }
+        });
+
         listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
