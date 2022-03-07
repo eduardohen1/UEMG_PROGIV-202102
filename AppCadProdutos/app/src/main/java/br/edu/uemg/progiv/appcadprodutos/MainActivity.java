@@ -14,6 +14,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
+import br.edu.uemg.progiv.appcadprodutos.Adapters.ProdutosAdapter;
 import br.edu.uemg.progiv.appcadprodutos.DAO.ProdutosDAO;
 import br.edu.uemg.progiv.appcadprodutos.Model.ProdutosModel;
 
@@ -24,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnCadastrar;
     ProdutosDAO produtosDAO;
     ArrayList<ProdutosModel> listaProdutos;
-    ArrayAdapter adapter;
+    //ArrayAdapter adapter;
+    ProdutosAdapter adapter;
     ProdutosModel produto;
 
     @Override
@@ -89,11 +91,12 @@ public class MainActivity extends AppCompatActivity {
         listaProdutos = produtosDAO.listaProdutos();
         produtosDAO.close();
         if(listaProdutos != null){
-            adapter = new ArrayAdapter<ProdutosModel>(
+            /*adapter = new ArrayAdapter<ProdutosModel>(
                     MainActivity.this,
                     android.R.layout.simple_list_item_1,
                     listaProdutos
-            );
+            );*/
+            adapter = new ProdutosAdapter(MainActivity.this, listaProdutos);
             listView.setAdapter(adapter);
         }
     }
